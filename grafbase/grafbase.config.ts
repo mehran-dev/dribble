@@ -14,10 +14,6 @@ const User = g.model("User", {
     .optional(),
 });
 
-export default config({
-  schema: g,
-});
-
 const Project = g.model("Project", {
   title: g.string().length({ min: 3 }),
   description: g.string(),
@@ -26,4 +22,9 @@ const Project = g.model("Project", {
   githubUrl: g.url(),
   category: g.string().search(),
   createdBy: g.relation(() => User),
+});
+
+//////////////////////////////////////////
+export default config({
+  schema: g,
 });
