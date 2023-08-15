@@ -1,1 +1,12 @@
 https://www.youtube.com/watch?v=986hztrfaSQ
+
+
+
+
+progress : 1:05 
+
+
+
+https://gist.github.com/adrianhajdin/a453d745c2361ae4183b421f577a0715
+
+https://console.cloud.google.com/apis/credentials?highlightClient=98663853800-f132q2mlqekuj3agg26fb63fabiphstv.apps.googleusercontent.com&organizationId=0&project=dribble-ux
