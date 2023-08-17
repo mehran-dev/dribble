@@ -1,6 +1,5 @@
 import { getServerSession } from "next-auth/next";
 import { NextAuthOptions, User } from "next-auth";
-//import { AdapterUser } from "next-auth/adapter-user";
 import GoogleProvider from "next-auth/providers/google";
 import jsonwebtoken from "jsonwebtoken";
 import { SessionInterface, UserProfile } from "@/common.types";
