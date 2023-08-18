@@ -4,6 +4,8 @@ import Image from "next/image";
 import { NavLinks } from "@/constants";
 import AuthProviders from "./authPoviders";
 import { getCurrentUser } from "@/lib/session";
+import { signOut } from "next-auth/react";
+import ProfileMenu from "./profileMenu";
 
 type Props = {};
 
@@ -28,14 +30,8 @@ export default async function Navbar({}: Props) {
       <div className="flexCenter gap-4 ">
         {session?.user ? (
           <>
-            User photo
-            <Image
-              src={session.user.image || ""}
-              height={40}
-              width={40}
-              className="rounded-full"
-              alt={session.user.name || ""}
-            />
+            <ProfileMenu session={session} />
+
             <Link href={"/create-project"}> Share work </Link>
           </>
         ) : (
