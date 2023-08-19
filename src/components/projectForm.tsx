@@ -6,6 +6,8 @@ import FormField from "./FormField";
 import { categoryFilters } from "@/constants";
 import CustomMenu from "./CustomMenu";
 import Button from "./Button";
+import { createNewProject, fetchToken } from "@/lib/actions";
+import { useRouter } from "next/navigation";
 
 type Props = {
   type: "create" | "edit";
@@ -22,11 +24,22 @@ export default function ProjectForm({ type, session }: Props) {
     githubUrl: "",
     category: "",
   });
-  const handleSubmit = (e: React.FormEvent) => {
+  const router = useRouter();
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    const { token } = await fetchToken();
+
     try {
-    } catch (error) {}
+      if (type === "create") {
+        await createNewProject(form, session?.user?.id, token);
+        router.push("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleChangeImage = (e: ChangeEvent<HTMLInputElement>) => {
